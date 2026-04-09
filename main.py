@@ -30,7 +30,7 @@ def main():
 
     # llm = ChatOpenAI(temperature=0, model="gpt-5")
     llm = ChatGoogleGenerativeAI(temperature=0, model="gemini-2.5-flash")
-    chain = summary_prompt_template | llm
+    chain = summary_prompt_template | llm   # | => pipeline operator to chain the components together (summary_prompt_template is the input and llm is the output)
     response = chain.invoke(input={"information": information})
     print(response.content)
 
